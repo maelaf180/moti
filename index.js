@@ -1,3 +1,4 @@
+//hi maelaf
 const { app, BrowserWindow } = require("electron");
 
 let mainWindow;

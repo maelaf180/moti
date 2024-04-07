@@ -30,7 +30,7 @@ function createWindow() {
      splash.loadFile("splash.html");
 
      // Load your HTML file (replace 'index.html' with your actual file)
-     mainWindow.loadFile("./web/shade_main_window.html");
+     mainWindow.loadFile("index.html");
 
      // After a minute, close the splash screen and show the main window
      setTimeout(() => {

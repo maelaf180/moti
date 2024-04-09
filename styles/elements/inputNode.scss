@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Bebas Neue';
-    src: url('/moti/assets/icons/fonts/BebasNeue-Regular.ttf') format('truetype');
+    src: url("C:/Users/Maelaf/Desktop/m/code Practice/portfolio website/moti/moti/assets/icons/fonts/BebasNeue-Regular.ttf") format('truetype');
     font-weight: 400;
     font-style: normal;
 }
@@ -22,9 +22,11 @@
     height: 100vh;
     color: var(--font-color);
 
-
-}
-
-nav {
-    font-family: "Bebas Neue", sans-serif
+    .navbar {
+        .logo-container {
+            .logo {
+                font-family: "Bebas Neue", monospace;
+            }
+        }
+    }
 }

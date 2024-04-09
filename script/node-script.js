@@ -51,6 +51,7 @@ node.forEach((elements) => {
 //     }
 // });
 
+
 //apply hover effect for buttons of add and move icons on the left of each node
 node.forEach((element) => {
     let pen_button_holder_fh = element.querySelector(".pen-button-holder");

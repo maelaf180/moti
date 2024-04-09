@@ -1,6 +1,7 @@
 @font-face {
     font-family: "Bebas Neue";
-    src: url("C:/Users/admin/Documents/GitHub/Mots/moti/assets/icons/fonts/BebasNeue-Regular.ttf") format("truetype");
+    src: url("C:/Users/admin/Documents/GitHub/Mots/moti/assets/icons/fonts/BebasNeue-Regular.ttf")
+        format("truetype");
     font-weight: 400;
     font-style: normal;
 }
@@ -13,7 +14,7 @@
 
 :root {
     --primary-color: hsla(0, 0%, 13%, 1);
-    --secondary-color: hsla(180, 0%, 20%, 1);
+    --secondary-color: #333333;
     --font-color: white;
     --pen-button-normal-fill: rgba(122, 122, 122, 0);
     --node-button-hover-color: rgb(20, 20, 20);
@@ -25,6 +26,11 @@
     --normal-typing-font: Helvetica;
     --normal-font-size: 20px;
     --cursor-expand: ew-resize;
+    --logo-normal-background: transparent;
+    --logo-hover-background: rgb(42, 42, 42);
+    --logo-normal-fill: white;
+    --logo-text-font: "Bebas Neue", sans-serif;
+    --menu-radius: 8px;
 }
 
 body {
@@ -47,7 +53,6 @@ body {
     display: flex;
     align-items: center;
 
-
     .sidebar-elements {
         height: 100%;
         width: 98%;
@@ -62,35 +67,49 @@ body {
     .sidebar-contracter:hover {
         background: var(--light-border-color-active);
     }
-
-
 }
 
 .first-main-container {
     background: var(--primary-color);
-
     color: var(--font-color);
+    overflow-y: hidden;
 
     .navbar {
         -webkit-app-region: drag;
         width: 100%;
         background: transparent;
         height: 50px;
-
+        z-index: 1000;
+        padding-inline: 10px;
         .logo-container {
+            width: 140px;
+            height: 100%;
             display: flex;
+            flex-wrap: nowrap;
             align-items: center;
-            padding: 10px 20px;
-
+            -webkit-app-region: none;
             .logo {
                 font-family: "Bebas Neue", monospace;
                 font-weight: 100;
-                padding-left: 10px;
-                padding-top: 1.5px;
+                margin-right: 5px;
+                width: 30px;
+                height: 30px;
+                border-radius: var(--menu-radius);
+                cursor: pointer;
+                background-color: var(--logo-normal-background);
+                &:hover {
+                    background-color: var(--logo-hover-background);
+                }
+                path {
+                    fill: var(--logo-normal-fill);
+                }
+            }
+            .logo-text {
+                font-family: var(--logo-text-font);
+                font-weight: 200;
             }
         }
     }
-
 
     .main-container {
         background: var(--primary-color);
@@ -101,8 +120,43 @@ body {
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        overflow-y: scroll;
+        /* Firefox (uncomment to work in Firefox, although other properties will not work!)  */
+        /** {
+  scrollbar-width: thin;
+  scrollbar-color: #4F4F4F #333333;
+}*/
 
+        /* Chrome, Edge and Safari */
+        &::-webkit-scrollbar {
+            height: 10px;
+            width: 10px;
+        }
+        &::-webkit-scrollbar-track {
+            border-radius: 5px;
+            background-color: #333333;
+        }
 
+        &::-webkit-scrollbar-track:hover {
+            background-color: #333333;
+        }
+
+        &::-webkit-scrollbar-track:active {
+            background-color: #333333;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: 1px;
+            background-color: #4f4f4f;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background-color: #636363;
+        }
+
+        &::-webkit-scrollbar-thumb:active {
+            background-color: #333333;
+        }
 
         .main-note {
             height: calc(100% - 50px);
@@ -117,7 +171,7 @@ body {
                 color: white;
                 border: 0px white solid;
                 background: rgba(14, 14, 14, 0);
-                transition: 0.8s ease-in-out;
+                transition: 0.1s ease-in-out;
                 height: 40px;
 
                 &:hover {
@@ -167,7 +221,7 @@ body {
                         path {
                             stroke: rgba(27, 27, 27, 0);
                             fill: rgba(110, 110, 110, 0);
-                            transition: 0.5s ease-in-out;
+                            transition: 0.1s ease-in-out;
                         }
                     }
 
@@ -177,11 +231,11 @@ body {
                         color: rgb(134, 134, 134);
                         width: 30px;
                         height: 30px;
-
+                        cursor: grab;
                         path {
                             stroke: rgba(27, 27, 27, 0);
                             fill: var(--pen-button-normal-fill);
-                            transition: 0.5s ease-in-out;
+                            transition: 0.1s ease-in-out;
                         }
                     }
 
@@ -204,12 +258,12 @@ body {
                     font-size: var(--normal-font-size);
                     display: flex;
                     align-items: center;
-
+                    cursor: text;
                     span {
                         display: flex;
                         align-items: center;
                         height: 40px;
-
+                        cursor: text;
                         &:active {
                             pen-button {
                                 fill: rgb(48, 48, 48);

@@ -15,18 +15,87 @@
 :root {
     --primary-color: hsla(0, 0%, 13%, 1);
     --font-color: white;
+    --border-color: rgba(255, 255, 255, 0.095);
+    --light-border-size: 1px;
 }
+
+
 
 .main-container {
     background: var(--primary-color);
     height: 100vh;
     color: var(--font-color);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
     .navbar {
+        -webkit-app-region: drag;
+        width: 100%;
+        background: transparent;
+
         .logo-container {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+
             .logo {
                 font-family: "Bebas Neue", monospace;
+                font-weight: 100;
+                padding-left: 10px;
+                padding-top: 1.5px;
+
             }
         }
     }
+
+    .main-note {
+        height: 100%;
+        width: 80%;
+        background: rgb(132, 24, 24);
+
+        .input-node {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            color: white;
+            border: 2px white solid;
+
+            button {
+                background: transparent;
+                border: none;
+
+                outline: none;
+
+                .pen-button {
+                    fill: white;
+                    stroke: white;
+                    color: white;
+                }
+
+                img {
+                    height: 25px;
+                    padding: 0 0 0 10px;
+                    stroke: white;
+                    fill: white;
+                }
+            }
+
+
+
+            .input-holder {
+                padding: 0 0 0 2px;
+                width: 100%;
+
+                span {
+                    height: 40px;
+                }
+            }
+        }
+
+    }
+
+
 }

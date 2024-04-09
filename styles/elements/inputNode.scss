@@ -17,6 +17,8 @@
     --font-color: white;
     --border-color: rgba(255, 255, 255, 0.095);
     --light-border-size: 1px;
+    --normal-typing-font: Helvetica;
+    --normal-font-size: 20px;
 }
 
 
@@ -54,25 +56,35 @@
     .main-note {
         height: 100%;
         width: 80%;
-        background: rgb(132, 24, 24);
+        background: rgba(132, 24, 24, 0);
+        margin-top: 100px;
 
         .input-node {
             display: flex;
             align-items: center;
             justify-content: flex-start;
             color: white;
-            border: 2px white solid;
-
+            border: 0px white solid;
+            background: rgba(14, 14, 14, 0);
+            transition: 0.8s ease-in-out;
+            height: 40px;
             button {
                 background: transparent;
                 border: none;
-
                 outline: none;
-
+                width: 40px;
+                height: 80%;
+                background: rgba(255, 255, 255, 0);
+                border: 2px solid rgba(0, 0, 0, 0);
+                cursor: pointer;
                 .pen-button {
-                    fill: white;
-                    stroke: white;
+                    fill: rgba(48, 48, 48, 0);
+                    stroke: rgba(255, 255, 255, 0);
                     color: white;
+                    transition: 0.4s ease-in-out;
+                    path{
+                        stroke: rgba(27, 27, 27, 0);
+                    }
                 }
 
                 img {
@@ -88,9 +100,19 @@
             .input-holder {
                 padding: 0 0 0 2px;
                 width: 100%;
-
+                outline: none;
+                border: none;
+                color: white;
+                margin-left: 20px;
+                font-family: var(--normal-typing-font);
+                font-size: var(--normal-font-size);
                 span {
                     height: 40px;
+                    &:active{
+                        pen-button{
+                            fill: rgb(48, 48, 48);
+                        }
+                    }
                 }
             }
         }

@@ -8,6 +8,9 @@ let active_input_field;
 node.forEach(elements => {
     let input_holder = elements.querySelector(".input-holder")
     input_holder.addEventListener("focus",()=>{
+        if(active_pen_button){
+            active_pen_button.style.fill = "transparent"
+        }
         let pen_button_holder = elements.querySelector(".pen-button-holder");
         let pen_button = pen_button_holder.querySelector(".pen-button")
         active_pen_button = pen_button;
@@ -15,7 +18,6 @@ node.forEach(elements => {
         active_input_field.addEventListener("input",function(){
             should_pen_highlight = false;
             active_pen_button.style.fill = "transparent";
-            console.log("fired")
         })
     })
 });

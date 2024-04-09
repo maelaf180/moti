@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Bebas Neue";
-  src: url("C:/Users/Maelaf/Desktop/m/code Practice/portfolio website/moti/moti/assets/icons/fonts/BebasNeue-Regular.ttf") format("truetype");
+  src: url("C:/Users/admin/Documents/GitHub/Mots/moti/assets/icons/fonts/BebasNeue-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
@@ -17,6 +17,9 @@
   --light-border-size: 1px;
   --normal-typing-font: Helvetica;
   --normal-font-size: 20px;
+  --pen-button-normal-fill: rgba(122, 122, 122, 0);
+  --node-button-hover-color: rgb(20, 20, 20);
+  --input-node-background-color: rgba(14, 14, 14, 0);
 }
 
 .main-container {
@@ -61,6 +64,15 @@
   transition: 0.8s ease-in-out;
   height: 40px;
 }
+.main-container .main-note .input-node:hover .movebtn path {
+  fill: white;
+}
+.main-container .main-note .input-node:hover .addbtn path {
+  fill: white;
+}
+.main-container .main-note .input-node .pen-button-holder {
+  width: 30px;
+}
 .main-container .main-note .input-node button {
   background: transparent;
   border: none;
@@ -69,16 +81,39 @@
   height: 80%;
   background: rgba(255, 255, 255, 0);
   border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  transition: 0.2s ease-in-out;
 }
-.main-container .main-note .input-node button .pen-button {
+.main-container .main-note .input-node button:hover {
+  background: var(--node-button-hover-color);
+}
+.main-container .main-note .input-node button .addbtn {
+  width: 15px;
+  height: 15px;
+  fill: rgba(48, 48, 48, 0);
+  stroke: rgba(255, 33, 33, 0);
+  color: rgb(95, 95, 95);
+}
+.main-container .main-note .input-node button .addbtn path {
+  stroke: rgba(27, 27, 27, 0);
+  fill: rgba(110, 110, 110, 0);
+  transition: 0.5s ease-in-out;
+}
+.main-container .main-note .input-node button .movebtn {
   fill: rgba(48, 48, 48, 0);
   stroke: rgba(255, 255, 255, 0);
-  color: white;
-  transition: 0.4s ease-in-out;
+  color: rgb(134, 134, 134);
+  width: 30px;
+  height: 30px;
 }
-.main-container .main-note .input-node button .pen-button path {
+.main-container .main-note .input-node button .movebtn path {
   stroke: rgba(27, 27, 27, 0);
+  fill: var(--pen-button-normal-fill);
+  transition: 0.5s ease-in-out;
 }
 .main-container .main-note .input-node button img {
   height: 25px;
@@ -95,8 +130,12 @@
   margin-left: 20px;
   font-family: var(--normal-typing-font);
   font-size: var(--normal-font-size);
+  display: flex;
+  align-items: center;
 }
 .main-container .main-note .input-node .input-holder span {
+  display: flex;
+  align-items: center;
   height: 40px;
 }
 .main-container .main-note .input-node .input-holder span:active pen-button {

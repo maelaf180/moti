@@ -14,6 +14,7 @@ function createWindow() {
           show: false, // Don't show the main window yet
           webPreferences: {
                nodeIntegration: true, // Enable Node.js integration in the renderer process
+               webSecurity: false,
           },
      });
 

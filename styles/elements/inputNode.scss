@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('/moti/assets/icons/fonts/BebasNeue-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    --primary-color: hsla(0, 0%, 13%, 1);
+    --font-color: white;
+}
+
+.main-container {
+    background: var(--primary-color);
+    height: 100vh;
+    color: var(--font-color);
+
+
+}
+
+nav {
+    font-family: "Bebas Neue", sans-serif
+}

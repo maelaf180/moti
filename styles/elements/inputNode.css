@@ -33,6 +33,7 @@
 
 body {
   cursor: var(--cursor-expand);
+  overflow-y: hidden;
 }
 
 .main-sidebar {
@@ -77,12 +78,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 50px;
+  height: 40px;
   z-index: 1000;
-  padding-inline: 10px;
+  padding-left: 10px;
 }
 .first-main-container .navbar .logo-container {
-  width: 140px;
+  width: 150px;
   height: 100%;
   display: flex;
   flex-wrap: nowrap;
@@ -90,7 +91,21 @@ body {
   -webkit-app-region: none;
 }
 .first-main-container .navbar .logo-container .logo {
-  font-family: "Bebas Neue", monospace;
+  width: 30px;
+  height: 30px;
+  background: var(--logo-normal-background);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  border-radius: var(--menu-radius);
+}
+.first-main-container .navbar .logo-container .logo:hover {
+  background: var(--logo-hover-background);
+}
+.first-main-container .navbar .logo-container .logo path {
+  fill: var(--logo-normal-fill);
+}
+.first-main-container .navbar .logo-container .logo-text {
+  font-family: var(--logo-text-font);
   font-weight: 100;
   padding-left: 10px;
   padding-top: 1.5px;

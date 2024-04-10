@@ -1,14 +1,15 @@
 const sidebar = document.querySelector('.main-sidebar');
 function toggleSidebar() {
 
-    document.addEventListener('mousemove',(event)=> {
+    document.addEventListener('mousemove', (event) => {
+        let sidebarWidth = sidebar.getBoundingClientRect().width;
         let mouseX = event.clientX;
         let mouseY = event.clientY;
         let screenWidth = window.innerWidth;
-        let leftBoundary = screenWidth * 0.2;
+        let leftBoundary = screenWidth * 0.07;
         if (mouseX < leftBoundary) {
             sidebar.style.left = '0';
-        } else {
+        } else if(mouseX >=sidebarWidth + 15) {
             sidebar.style.left = '-350px';
         }
 
@@ -24,7 +25,6 @@ function lockSidebar() {
 
         let sidebarBottom = sidebar.getBoundingClientRect().bottom;
         if (mouseX < sidebarRight + selectionRange && (mouseX > sidebarRight - selectionRange) && mouseY > sidebarTop && mouseY < sidebarBottom) {
-            
             sidebar.style.borderRight = "var(--light-border-color-active) solid var(--light-border-size)";
             document.documentElement.style.setProperty('--cursor-expand', 'ew-resize');
         } else {

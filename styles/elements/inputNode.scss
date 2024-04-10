@@ -33,11 +33,11 @@ body {
 
 .main-sidebar {
     position: absolute;
-    left: 0;
+    left: -50%;
     top: 50%;
     height: 80%;
     min-height: 400px;
-    width: 270px;
+    width: 20%;
     background: var(--secondary-color);
     transform: translate(0%, -50%);
     border-top-right-radius: 15px;
@@ -66,24 +66,16 @@ body {
 
 }
 
-
-
-
-
-.main-container {
+.first-main-container {
     background: var(--primary-color);
-    height: 100vh;
+
     color: var(--font-color);
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
 
     .navbar {
         -webkit-app-region: drag;
         width: 100%;
         background: transparent;
+        height: 50px;
 
         .logo-container {
             display: flex;
@@ -99,115 +91,129 @@ body {
         }
     }
 
-    .main-note {
-        height: 100%;
-        width: 68%;
-        background: rgba(132, 24, 24, 0);
-        margin-top: 100px;
 
-        .input-node {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            color: white;
-            border: 0px white solid;
-            background: rgba(14, 14, 14, 0);
-            transition: 0.8s ease-in-out;
-            height: 40px;
+    .main-container {
+        background: var(--primary-color);
+        height: calc(100vh - 50px);
+        color: var(--font-color);
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
 
-            &:hover {
-                .movebtn {
-                    path {
-                        fill: white;
-                    }
-                }
 
-                .addbtn {
-                    path {
-                        fill: white;
-                    }
-                }
-            }
 
-            .pen-button-holder {
-                width: 30px;
-            }
+        .main-note {
+            height: calc(100% - 50px);
+            width: 68%;
+            background: rgba(132, 24, 24, 0);
+            margin-top: 100px;
 
-            button {
-                background: transparent;
-                border: none;
-                outline: none;
-                width: 40px;
-                height: 80%;
-                background: rgba(255, 255, 255, 0);
-                border: 2px solid rgba(0, 0, 0, 0);
-                border-radius: 5px;
+            .input-node {
                 display: flex;
                 align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                transition: 0.2s ease-in-out;
+                justify-content: flex-start;
+                color: white;
+                border: 0px white solid;
+                background: rgba(14, 14, 14, 0);
+                transition: 0.8s ease-in-out;
+                height: 40px;
 
                 &:hover {
-                    background: var(--node-button-hover-color);
-                }
+                    .movebtn {
+                        path {
+                            fill: white;
+                        }
+                    }
 
-                .addbtn {
-                    width: 15px;
-                    height: 15px;
-                    fill: rgba(48, 48, 48, 0);
-                    stroke: rgba(255, 33, 33, 0);
-                    color: rgb(95, 95, 95);
-
-                    path {
-                        stroke: rgba(27, 27, 27, 0);
-                        fill: rgba(110, 110, 110, 0);
-                        transition: 0.5s ease-in-out;
+                    .addbtn {
+                        path {
+                            fill: white;
+                        }
                     }
                 }
 
-                .movebtn {
-                    fill: rgba(48, 48, 48, 0);
-                    stroke: rgba(255, 255, 255, 0);
-                    color: rgb(134, 134, 134);
+                .pen-button-holder {
                     width: 30px;
-                    height: 30px;
-
-                    path {
-                        stroke: rgba(27, 27, 27, 0);
-                        fill: var(--pen-button-normal-fill);
-                        transition: 0.5s ease-in-out;
-                    }
                 }
 
-                img {
-                    height: 25px;
-                    padding: 0 0 0 10px;
-                    stroke: white;
-                    fill: white;
-                }
-            }
-
-            .input-holder {
-                padding: 0 0 0 2px;
-                width: 100%;
-                outline: none;
-                border: none;
-                color: white;
-                margin-left: 20px;
-                font-family: var(--normal-typing-font);
-                font-size: var(--normal-font-size);
-                display: flex;
-                align-items: center;
-
-                span {
+                button {
+                    background: transparent;
+                    border: none;
+                    outline: none;
+                    width: 40px;
+                    height: 80%;
+                    background: rgba(255, 255, 255, 0);
+                    border: 2px solid rgba(0, 0, 0, 0);
+                    border-radius: 5px;
                     display: flex;
                     align-items: center;
-                    height: 40px;
+                    justify-content: center;
+                    cursor: pointer;
+                    transition: 0.2s ease-in-out;
 
-                    &:active {
-                        pen-button {
-                            fill: rgb(48, 48, 48);
+                    &:hover {
+                        background: var(--node-button-hover-color);
+                    }
+
+                    .addbtn {
+                        width: 15px;
+                        height: 15px;
+                        fill: rgba(48, 48, 48, 0);
+                        stroke: rgba(255, 33, 33, 0);
+                        color: rgb(95, 95, 95);
+
+                        path {
+                            stroke: rgba(27, 27, 27, 0);
+                            fill: rgba(110, 110, 110, 0);
+                            transition: 0.5s ease-in-out;
+                        }
+                    }
+
+                    .movebtn {
+                        fill: rgba(48, 48, 48, 0);
+                        stroke: rgba(255, 255, 255, 0);
+                        color: rgb(134, 134, 134);
+                        width: 30px;
+                        height: 30px;
+
+                        path {
+                            stroke: rgba(27, 27, 27, 0);
+                            fill: var(--pen-button-normal-fill);
+                            transition: 0.5s ease-in-out;
+                        }
+                    }
+
+                    img {
+                        height: 25px;
+                        padding: 0 0 0 10px;
+                        stroke: white;
+                        fill: white;
+                    }
+                }
+
+                .input-holder {
+                    padding: 0 0 0 2px;
+                    width: 100%;
+                    outline: none;
+                    border: none;
+                    color: white;
+                    margin-left: 20px;
+                    font-family: var(--normal-typing-font);
+                    font-size: var(--normal-font-size);
+                    display: flex;
+                    align-items: center;
+
+                    span {
+                        display: flex;
+                        align-items: center;
+                        height: 40px;
+
+                        &:active {
+                            pen-button {
+                                fill: rgb(48, 48, 48);
+                            }
                         }
                     }
                 }

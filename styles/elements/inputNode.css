@@ -67,7 +67,10 @@ body {
   -webkit-app-region: drag;
   width: 100%;
   background: transparent;
-  height: 50px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .first-main-container .navbar .logo-container {
   display: flex;
@@ -80,9 +83,32 @@ body {
   padding-left: 10px;
   padding-top: 1.5px;
 }
+.first-main-container .navbar .close-container {
+  -webkit-app-region: none;
+  height: 100%;
+  width: 150px;
+  display: flex;
+  justify-content: space-between;
+}
+.first-main-container .navbar .close-container .image-holder {
+  width: 80px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.first-main-container .navbar .close-container .image-holder img {
+  height: 25px;
+}
+.first-main-container .navbar .close-container .image-holder:hover {
+  background: var(--secondary-color);
+}
+.first-main-container .navbar .close-container .image-holder:nth-child(3):hover {
+  background: rgb(243, 32, 32);
+}
 .first-main-container .main-container {
   background: var(--primary-color);
-  height: calc(100vh - 50px);
+  height: calc(100vh - 40px);
   color: var(--font-color);
   width: 100%;
   display: flex;

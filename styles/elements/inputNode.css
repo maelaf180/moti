@@ -1,7 +1,13 @@
 @font-face {
   font-family: "Bebas Neue";
   src: url("C:/Users/admin/Documents/GitHub/Mots/moti/assets/icons/fonts/BebasNeue-Regular.ttf") format("truetype");
-  font-weight: 400;
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Work Sans";
+  src: url("C:/Users/admin/Documents/GitHub/Mots/moti/assets/icons/fonts/Work_Sans/WorkSans-VariableFont_wght.ttf") format("truetype");
+  font-weight: 500;
   font-style: normal;
 }
 * {
@@ -9,11 +15,36 @@
   margin: 0;
   box-sizing: border-box;
 }
+*::-webkit-scrollbar {
+  height: 10px;
+  width: 8px;
+}
+*::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: #333333;
+}
+*::-webkit-scrollbar-track:hover {
+  background-color: #333333;
+}
+*::-webkit-scrollbar-track:active {
+  background-color: #333333;
+}
+*::-webkit-scrollbar-thumb {
+  border-radius: 1px;
+  background-color: #4f4f4f;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #636363;
+}
+*::-webkit-scrollbar-thumb:active {
+  background-color: #333333;
+}
 
 :root {
   --primary-color: hsla(0, 0%, 13%, 1);
-  --secondary-color: #333333;
+  --secondary-color: #262626;
   --font-color: white;
+  --large-font-size: 60px;
   --pen-button-normal-fill: rgba(122, 122, 122, 0);
   --node-button-hover-color: rgb(20, 20, 20);
   --input-node-background-color: rgba(14, 14, 14, 0);
@@ -21,7 +52,7 @@
   --light-border-size: 1px;
   --light-border-color: rgba(255, 255, 255, 0.073);
   --light-border-color-active: rgba(255, 255, 255, 0.301);
-  --normal-typing-font: Helvetica;
+  --normal-typing-font: "Work sans";
   --normal-font-size: 20px;
   --cursor-expand: ew-resize;
   --logo-normal-background: transparent;
@@ -29,6 +60,11 @@
   --logo-normal-fill: white;
   --logo-text-font: "Bebas Neue", sans-serif;
   --menu-radius: 8px;
+  --small-font-size: 14px;
+  --light-font-weight: 100;
+  --note-list-border-bottom-color: rgba(255, 255, 255, 0.1);
+  --side-bar-button-hover: rgb(57, 57, 57);
+  --side-bar-btn-font-color: rgb(178, 178, 178);
 }
 
 body {
@@ -54,7 +90,177 @@ body {
 }
 .main-sidebar .sidebar-elements {
   height: 100%;
+  width: 99.5%;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+}
+.main-sidebar .sidebar-elements .noteviewheader {
+  width: 100%;
+  height: 30px;
+  background: rgba(35, 35, 35, 0);
+  border-radius: 0px;
+  border-bottom: 1px solid var(--note-list-border-bottom-color);
+}
+.main-sidebar .sidebar-elements .noteviewheader:hover {
+  background: transparent;
+}
+.main-sidebar .sidebar-elements .notelist {
+  width: 99%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  padding: 0px;
+  margin-top: 15px;
+  padding-right: 8px;
+  margin-bottom: 8px;
+}
+.main-sidebar .sidebar-elements .notelist:hover {
+  background: transparent;
+}
+.main-sidebar .sidebar-elements .notelist .content {
   width: 98%;
+  height: 95%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0px;
+  padding-top: 10px;
+  cursor: default;
+}
+.main-sidebar .sidebar-elements .notelist .content:hover {
+  background: transparent;
+}
+.main-sidebar .sidebar-elements .notelist .content .note_recro {
+  width: 98%;
+  height: 35px;
+  background: rgba(84, 84, 84, 0);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  line-height: 20px;
+  margin-top: 5px;
+  padding-block: 3px;
+}
+.main-sidebar .sidebar-elements .notelist .content .note_recro:hover {
+  background: var(--side-bar-button-hover);
+}
+.main-sidebar .sidebar-elements .notelist .content .note_recro .note_icon {
+  width: 30px;
+  height: 30px;
+  margin-left: -20px;
+  background-color: rgba(255, 255, 255, 0);
+}
+.main-sidebar .sidebar-elements .notelist .content .note_recro .note_icon svg {
+  width: 25px;
+  height: 24px;
+}
+.main-sidebar .sidebar-elements .notelist .content .note_recro .note_icon svg path {
+  fill: rgb(160, 160, 160);
+  fill-rule: evenodd;
+}
+.main-sidebar .sidebar-elements .notelist .content .note_recro .note_sub_menu {
+  width: 40px;
+  height: 30px;
+  margin: 10px;
+  margin-left: 45px;
+  background-color: rgba(255, 255, 255, 0);
+}
+.main-sidebar .sidebar-elements .notelist .content .note_recro .note_sub_menu svg {
+  width: 24px;
+  height: 28px;
+}
+.main-sidebar .sidebar-elements .notelist .content .note_recro .note_sub_menu svg path {
+  fill: rgb(160, 160, 160);
+  stroke-width: 4px;
+}
+.main-sidebar .sidebar-elements .notelist .content .note_recro .note_text {
+  text-wrap: nowrap;
+  font-family: "Work Sans", sans-serif;
+  font-size: 14px;
+  width: 120px;
+  text-align: center;
+}
+.main-sidebar .sidebar-elements .notelist .content .note_recro div {
+  background: none;
+}
+.main-sidebar .sidebar-elements .commandline span {
+  margin-left: 5px;
+  width: 200px;
+}
+.main-sidebar .sidebar-elements div {
+  width: 100%;
+  margin-block: 0px;
+  color: var(--side-bar-btn-font-color);
+  font-family: var(--normal-typing-font);
+  height: 44px;
+  background: rgba(47, 47, 47, 0);
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  font-size: var(--small-font-size);
+  font-family: var(--normal-typing-font);
+  padding-left: 12px;
+  padding-block: 10px;
+  cursor: pointer;
+  font-weight: var(--light-font-weight);
+  font-family: "Work Sans", sans-serif;
+}
+.main-sidebar .sidebar-elements div:hover {
+  background: var(--side-bar-button-hover);
+}
+.main-sidebar .sidebar-elements div svg {
+  width: 25px;
+  height: 25px;
+}
+.main-sidebar .sidebar-elements div .home-icon-sidebar {
+  width: 27px;
+  height: 27px;
+  margin: 0px;
+  margin-right: 5px;
+}
+.main-sidebar .sidebar-elements div .home-icon-sidebar path {
+  stroke: var(--logo-normal-fill);
+  stroke-width: 1px;
+}
+.main-sidebar .sidebar-elements div .home-icon-sidebar span {
+  font-family: var(--normal-typing-font);
+  margin-left: 10px;
+}
+.main-sidebar .sidebar-elements div .commandline-icon-sidebar {
+  width: 23px;
+  height: 23px;
+  margin: 0px;
+  margin-right: 5px;
+  padding-left: 4px;
+  margin-right: 4px;
+}
+.main-sidebar .sidebar-elements div .commandline-icon-sidebar path {
+  fill: rgb(168, 165, 165);
+  stroke-width: 0.5px;
+}
+.main-sidebar .sidebar-elements div .settings-icon-sidebar {
+  width: 27px;
+  height: 20px;
+  margin: 0px;
+  margin-right: 5px;
+}
+.main-sidebar .sidebar-elements div .settings-icon-sidebar path {
+  stroke: white;
+  stroke-width: 1px;
+  border-radius: 8px;
+}
+.main-sidebar .sidebar-elements div .new-note-icon-sidebar {
+  width: 27px;
+  height: 24px;
+  margin: 0px;
+  margin-right: 5px;
+}
+.main-sidebar .sidebar-elements div .new-note-icon-sidebar path {
+  fill: rgb(185, 185, 185);
+  stroke-width: 1px;
+  border-radius: 8px;
 }
 .main-sidebar .sidebar-contracter {
   width: 1%;
@@ -124,8 +330,9 @@ body {
   align-items: center;
   justify-content: center;
 }
-.first-main-container .navbar .close-container .image-holder img {
-  height: 25px;
+.first-main-container .navbar .close-container .image-holder svg {
+  width: 20px;
+  height: 20px;
 }
 .first-main-container .navbar .close-container .image-holder:hover {
   background: var(--secondary-color);
@@ -150,35 +357,116 @@ body {
   }*/
   /* Chrome, Edge and Safari */
 }
-.first-main-container .main-container::-webkit-scrollbar {
-  height: 10px;
-  width: 10px;
-}
-.first-main-container .main-container::-webkit-scrollbar-track {
-  border-radius: 5px;
-  background-color: #333333;
-}
-.first-main-container .main-container::-webkit-scrollbar-track:hover {
-  background-color: #333333;
-}
-.first-main-container .main-container::-webkit-scrollbar-track:active {
-  background-color: #333333;
-}
-.first-main-container .main-container::-webkit-scrollbar-thumb {
-  border-radius: 1px;
-  background-color: #4f4f4f;
-}
-.first-main-container .main-container::-webkit-scrollbar-thumb:hover {
-  background-color: #636363;
-}
-.first-main-container .main-container::-webkit-scrollbar-thumb:active {
-  background-color: #333333;
-}
 .first-main-container .main-container .main-note {
   height: calc(100% - 50px);
-  width: 68%;
+  width: 50%;
   background: rgba(132, 24, 24, 0);
   margin-top: 100px;
+}
+.first-main-container .main-container .main-note .input-header-node {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: white;
+  border: 0px white solid;
+  background: rgba(14, 14, 14, 0);
+  transition: 0.1s ease-in-out, 0s ease-out top;
+  height: 80px;
+  width: 70%;
+}
+.first-main-container .main-container .main-note .input-header-node:hover .movebtn path {
+  fill: white;
+}
+.first-main-container .main-container .main-note .input-header-node:hover .addbtn path {
+  fill: white;
+}
+.first-main-container .main-container .main-note .input-header-node .pen-button-holder {
+  width: 30px;
+}
+.first-main-container .main-container .main-note .input-header-node button {
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 40px;
+  height: 80%;
+  background: rgba(255, 255, 255, 0);
+  border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.first-main-container .main-container .main-note .input-header-node button:hover {
+  background: var(--node-button-hover-color);
+}
+.first-main-container .main-container .main-note .input-header-node button .addbtn {
+  width: 15px;
+  height: 15px;
+  fill: rgba(48, 48, 48, 0);
+  stroke: rgba(255, 33, 33, 0);
+  color: rgb(95, 95, 95);
+}
+.first-main-container .main-container .main-note .input-header-node button .addbtn path {
+  stroke: rgba(27, 27, 27, 0);
+  fill: rgba(110, 110, 110, 0);
+  transition: 0.1s ease-in-out;
+}
+.first-main-container .main-container .main-note .input-header-node button .movebtn {
+  fill: rgba(48, 48, 48, 0);
+  stroke: rgba(255, 255, 255, 0);
+  color: rgb(134, 134, 134);
+  width: 30px;
+  height: 30px;
+  cursor: grab;
+}
+.first-main-container .main-container .main-note .input-header-node button .movebtn path {
+  stroke: rgba(27, 27, 27, 0);
+  fill: var(--pen-button-normal-fill);
+  transition: 0.1s ease-in-out;
+}
+.first-main-container .main-container .main-note .input-header-node button img {
+  height: 25px;
+  padding: 0 0 0 10px;
+  stroke: white;
+  fill: white;
+}
+.first-main-container .main-container .main-note .input-header-node .input-holder {
+  padding: 0 0 0 2px;
+  width: 100%;
+  outline: none;
+  border: none;
+  color: rgb(115, 115, 115);
+  margin-left: 20px;
+  font-family: var(--normal-typing-font);
+  font-size: var(--large-font-size);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  text-wrap: nowrap;
+  cursor: text;
+}
+.first-main-container .main-container .main-note .input-header-node .input-holder span {
+  /* CSS */
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  height: 40px;
+  cursor: text;
+  text-wrap: nowrap;
+}
+.first-main-container .main-container .main-note .input-header-node .input-holder span:before {
+  content: attr(data-placeholder);
+  color: #888;
+  display: inline-block; /* For center alignment of text */
+}
+.first-main-container .main-container .main-note .input-header-node .input-holder span.show-placeholder:before {
+  display: none;
+}
+.first-main-container .main-container .main-note .input-header-node .input-holder span:active pen-button {
+  fill: rgb(48, 48, 48);
 }
 .first-main-container .main-container .main-note .input-node {
   display: flex;

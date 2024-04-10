@@ -23,7 +23,7 @@ function lockSidebar() {
         let sidebarTop = sidebar.getBoundingClientRect().top;
 
         let sidebarBottom = sidebar.getBoundingClientRect().bottom;
-        if (mouseX < sidebarRight + selectionRange && (mouseX > sidebarRight + selectionRange) && mouseY > sidebarTop && mouseY < sidebarBottom) {
+        if (mouseX < sidebarRight + selectionRange && (mouseX > sidebarRight - selectionRange) && mouseY > sidebarTop && mouseY < sidebarBottom) {
             
             sidebar.style.borderRight = "var(--light-border-color-active) solid var(--light-border-color)";
             sidebar.style.cursor = "var(--cursor-expand)";

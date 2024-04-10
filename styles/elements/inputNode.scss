@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Bebas Neue';
-    src: url("C:/Users/Maelaf/Desktop/m/code Practice/portfolio website/moti/moti/assets/icons/fonts/BebasNeue-Regular.ttf") format('truetype');
+    font-family: "Bebas Neue";
+    src: url("C:/Users/admin/Documents/GitHub/Mots/moti/assets/icons/fonts/BebasNeue-Regular.ttf") format("truetype");
     font-weight: 400;
     font-style: normal;
 }
@@ -11,12 +11,13 @@
     box-sizing: border-box;
 }
 
-
 :root {
     --primary-color: hsla(0, 0%, 13%, 1);
     --secondary-color: hsla(180, 0%, 20%, 1);
     --font-color: white;
-
+    --pen-button-normal-fill: rgba(122, 122, 122, 0);
+    --node-button-hover-color: rgb(20, 20, 20);
+    --input-node-background-color: rgba(14, 14, 14, 0);
     --border-color: rgba(255, 255, 255, 0.095);
     --light-border-size: 1px;
     --light-border-color: rgba(255, 255, 255, 0.073);
@@ -61,6 +62,9 @@
 }
 
 
+
+
+
 .main-container {
     background: var(--primary-color);
     height: 100vh;
@@ -86,7 +90,6 @@
                 font-weight: 100;
                 padding-left: 10px;
                 padding-top: 1.5px;
-
             }
         }
     }
@@ -107,6 +110,24 @@
             transition: 0.8s ease-in-out;
             height: 40px;
 
+            &:hover {
+                .movebtn {
+                    path {
+                        fill: white;
+                    }
+                }
+
+                .addbtn {
+                    path {
+                        fill: white;
+                    }
+                }
+            }
+
+            .pen-button-holder {
+                width: 30px;
+            }
+
             button {
                 background: transparent;
                 border: none;
@@ -115,16 +136,42 @@
                 height: 80%;
                 background: rgba(255, 255, 255, 0);
                 border: 2px solid rgba(0, 0, 0, 0);
+                border-radius: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 cursor: pointer;
+                transition: 0.2s ease-in-out;
 
-                .pen-button {
+                &:hover {
+                    background: var(--node-button-hover-color);
+                }
+
+                .addbtn {
+                    width: 15px;
+                    height: 15px;
                     fill: rgba(48, 48, 48, 0);
-                    stroke: rgba(255, 255, 255, 0);
-                    color: white;
-                    transition: 0.4s ease-in-out;
+                    stroke: rgba(255, 33, 33, 0);
+                    color: rgb(95, 95, 95);
 
                     path {
                         stroke: rgba(27, 27, 27, 0);
+                        fill: rgba(110, 110, 110, 0);
+                        transition: 0.5s ease-in-out;
+                    }
+                }
+
+                .movebtn {
+                    fill: rgba(48, 48, 48, 0);
+                    stroke: rgba(255, 255, 255, 0);
+                    color: rgb(134, 134, 134);
+                    width: 30px;
+                    height: 30px;
+
+                    path {
+                        stroke: rgba(27, 27, 27, 0);
+                        fill: var(--pen-button-normal-fill);
+                        transition: 0.5s ease-in-out;
                     }
                 }
 
@@ -136,8 +183,6 @@
                 }
             }
 
-
-
             .input-holder {
                 padding: 0 0 0 2px;
                 width: 100%;
@@ -147,8 +192,12 @@
                 margin-left: 20px;
                 font-family: var(--normal-typing-font);
                 font-size: var(--normal-font-size);
+                display: flex;
+                align-items: center;
 
                 span {
+                    display: flex;
+                    align-items: center;
                     height: 40px;
 
                     &:active {
@@ -159,8 +208,5 @@
                 }
             }
         }
-
     }
-
-
 }

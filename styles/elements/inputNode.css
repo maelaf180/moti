@@ -12,11 +12,43 @@
 
 :root {
   --primary-color: hsla(0, 0%, 13%, 1);
+  --secondary-color: hsla(180, 0%, 20%, 1);
   --font-color: white;
   --border-color: rgba(255, 255, 255, 0.095);
   --light-border-size: 1px;
+  --light-border-color: rgba(255, 255, 255, 0.073);
+  --light-border-color-active: rgba(255, 255, 255, 0.301);
   --normal-typing-font: Helvetica;
   --normal-font-size: 20px;
+  --cursor-expand: ew-resize;
+}
+
+.main-sidebar {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 700px;
+  width: 270px;
+  background: var(--secondary-color);
+  transform: translate(0%, -50%);
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-right: var(--light-border-size) solid var(--light-border-color);
+  transition: 0.3s cubic-bezier(0.12, 0.66, 0.26, 1.01);
+  display: flex;
+  align-items: center;
+}
+.main-sidebar .sidebar-elements {
+  height: 100%;
+  width: 98%;
+}
+.main-sidebar .sidebar-contracter {
+  width: 1%;
+  background: var(--light-border-color);
+  height: 100%;
+}
+.main-sidebar .sidebar-contracter:hover {
+  background: var(--light-border-color-active);
 }
 
 .main-container {
@@ -47,7 +79,7 @@
 }
 .main-container .main-note {
   height: 100%;
-  width: 80%;
+  width: 68%;
   background: rgba(132, 24, 24, 0);
   margin-top: 100px;
 }

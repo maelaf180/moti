@@ -14,13 +14,51 @@
 
 :root {
     --primary-color: hsla(0, 0%, 13%, 1);
+    --secondary-color: hsla(180, 0%, 20%, 1);
     --font-color: white;
+
     --border-color: rgba(255, 255, 255, 0.095);
     --light-border-size: 1px;
+    --light-border-color: rgba(255, 255, 255, 0.073);
+    --light-border-color-active: rgba(255, 255, 255, 0.301);
     --normal-typing-font: Helvetica;
     --normal-font-size: 20px;
+    --cursor-expand: ew-resize;
 }
 
+.main-sidebar {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 700px;
+    width: 270px;
+    background: var(--secondary-color);
+    transform: translate(0%, -50%);
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-right: var(--light-border-size) solid var(--light-border-color);
+    transition: 0.3s cubic-bezier(0.12, 0.66, 0.26, 1.01);
+    display: flex;
+    align-items: center;
+
+
+    .sidebar-elements {
+        height: 100%;
+        width: 98%;
+    }
+
+    .sidebar-contracter {
+        width: 1%;
+        background: var(--light-border-color);
+        height: 100%;
+    }
+
+    .sidebar-contracter:hover {
+        background: var(--light-border-color-active);
+    }
+
+
+}
 
 
 .main-container {
@@ -55,7 +93,7 @@
 
     .main-note {
         height: 100%;
-        width: 80%;
+        width: 68%;
         background: rgba(132, 24, 24, 0);
         margin-top: 100px;
 
@@ -68,6 +106,7 @@
             background: rgba(14, 14, 14, 0);
             transition: 0.8s ease-in-out;
             height: 40px;
+
             button {
                 background: transparent;
                 border: none;
@@ -77,12 +116,14 @@
                 background: rgba(255, 255, 255, 0);
                 border: 2px solid rgba(0, 0, 0, 0);
                 cursor: pointer;
+
                 .pen-button {
                     fill: rgba(48, 48, 48, 0);
                     stroke: rgba(255, 255, 255, 0);
                     color: white;
                     transition: 0.4s ease-in-out;
-                    path{
+
+                    path {
                         stroke: rgba(27, 27, 27, 0);
                     }
                 }
@@ -106,10 +147,12 @@
                 margin-left: 20px;
                 font-family: var(--normal-typing-font);
                 font-size: var(--normal-font-size);
+
                 span {
                     height: 40px;
-                    &:active{
-                        pen-button{
+
+                    &:active {
+                        pen-button {
                             fill: rgb(48, 48, 48);
                         }
                     }

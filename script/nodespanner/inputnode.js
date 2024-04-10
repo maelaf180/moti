@@ -8,6 +8,7 @@ export class inputNode {
         this.element;
         this.next = null;
         this.prev = null;
+        this.inputfield;
     }
     initUi() {
         let node = document.createElement("div");
@@ -50,63 +51,26 @@ export class inputNode {
                 e.preventDefault();
                 let initialY = e.clientY;
                 let initialTop = self.element.offsetTop;
-                let nextNode = self.next;
-                let prevNode = self.prev;
+                let parentNode = self.element.parentNode;
+                let lastPastNode = null;
+
+                // Remove the element from the DOM
+                parentNode.removeChild(self.element);
 
                 function move(e) {
                     let deltaY = e.clientY - initialY;
                     self.element.style.top = initialTop + deltaY + "px";
 
-                    // Check if the element has been moved enough to swap places with its next sibling
-                    if (
-                        nextNode &&
-                        self.element.getBoundingClientRect().bottom >
-                            nextNode.element.getBoundingClientRect().top +
-                                nextNode.element.getBoundingClientRect()
-                                    .height /
-                                    2
-                    ) {
-                        // Swap the positions of the elements in the linked list
-                        self.next.prev = self.prev;
-                        let oldNext = self.next;
-                        self.next = oldNext.next;
-                        oldNext.next = self;
-                        self.prev = oldNext;
-
-                        if (self.next) {
-                            self.next.prev = self;
-                        }
-
-                        if (oldNext.next) {
-                            oldNext.next.prev = oldNext;
-                        }
-
-                        // Update the top styles of the swapped elements
-                        let tempTop = self.element.style.top;
-                        self.element.style.top = oldNext.element.style.top;
-                        oldNext.element.style.top = tempTop;
-                    }
-
-                    // Check if the element has been moved enough to swap places with its previous sibling
-                    else if (
-                        prevNode &&
-                        self.element.getBoundingClientRect().top <
-                            prevNode.element.getBoundingClientRect().top - 5
-                    ) {
-                        // Swap the positions of the elements in the linked list
-                        self.prev = prevNode.prev;
-                        prevNode.next = self.next;
-                        self.next = prevNode;
-                        prevNode.prev = self;
-
-                        // Update the next and prevNode variables
-                        nextNode = self.next;
-                        prevNode = self.prev;
-
-                        // Update the top styles of the swapped elements
-                        let tempTop = self.element.style.top;
-                        self.element.style.top = prevNode.element.style.top;
-                        prevNode.element.style.top = tempTop;
+                    // Update lastPastNode
+                    let potentialPastNode = Array.from(parentNode.children)
+                        .filter((node) => node !== self.element)
+                        .find(
+                            (node) =>
+                                node.getBoundingClientRect().top <
+                                self.element.getBoundingClientRect().top
+                        );
+                    if (potentialPastNode) {
+                        lastPastNode = potentialPastNode;
                     }
                 }
 
@@ -115,8 +79,19 @@ export class inputNode {
                     "mouseup",
                     () => {
                         document.removeEventListener("mousemove", move);
+
                         // Reset the top style of the moved element
                         self.element.style.top = "";
+
+                        // Insert the moved element back into the DOM at the correct position
+                        if (lastPastNode && lastPastNode.nextSibling) {
+                            parentNode.insertBefore(
+                                self.element,
+                                lastPastNode.nextSibling
+                            );
+                        } else {
+                            parentNode.appendChild(self.element);
+                        }
                     },
                     { once: true }
                 );
@@ -125,21 +100,22 @@ export class inputNode {
         );
         node.appendChild(pen_button_holder);
         let input_holder = document.createElement("div");
+        self.inputfield = input_holder;
         input_holder.contentEditable = true;
         input_holder.classList.add("input-holder");
+        input_holder.addEventListener("keypress", function (e) {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                // Clear the input holder
+                self.next.inputfield.focus();
+            }
+        });
         let input_holder_text = document.createElement("span");
         input_holder_text.classList.add("input-holder-text");
         if (self.index == 0) {
             input_holder_text.textContent = "wlecome to mots";
         }
         input_holder.appendChild(input_holder_text);
-        console.log(this.prev);
-        if (this.prev) {
-            console.log("never readched here");
-            node.style.top = `${
-                this.prev.element.getBoundingClientRect().bottom
-            }px`;
-        }
         node.appendChild(input_holder);
         this.element = node;
     }

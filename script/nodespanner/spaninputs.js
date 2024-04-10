@@ -2,14 +2,15 @@ import { inputNode } from "./inputnode.js";
 
 
 let node_container = document.querySelector(".main-note");
-let typing_note_count = 20;
+let typing_note_count = 10;
 let prev = null;
 let next = null;
 
 for(let i = 0; i < typing_note_count; i++){
     let newinputnode = new inputNode();
-    newinputnode.initUi();
     newinputnode.prev = prev;
+    newinputnode.index = i;
+    newinputnode.initUi();
     if (prev) {
         prev.next = newinputnode;
     }

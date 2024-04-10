@@ -1,3 +1,4 @@
+import { presets } from "./rules/presets.js";
 //all input fields must have this class so there buttons are color changed when they are in focus
 let node = document.querySelectorAll(".node");
 let should_pen_highlight = true;
@@ -51,7 +52,6 @@ node.forEach((elements) => {
 //     }
 // });
 
-
 //apply hover effect for buttons of add and move icons on the left of each node
 node.forEach((element) => {
     let pen_button_holder_fh = element.querySelector(".pen-button-holder");
@@ -59,32 +59,40 @@ node.forEach((element) => {
     let pen_button_fh = pen_button_holder_fh.querySelector(".movebtn");
     let plus_button_fh = add_button_holder_fh.querySelector(".addbtn");
     pen_button_holder_fh.addEventListener("mouseover",function(){
-        pen_button_fh.querySelector("path").style.fill = "white";
-        plus_button_fh.querySelector("path").style.fill = "white";
+        if(!presets.one_element_being_dragged){
+            pen_button_fh.querySelector("path").style.fill = "white";
+            plus_button_fh.querySelector("path").style.fill = "white";
+        }
     })
     pen_button_holder_fh.addEventListener("mouseout",function(){
         pen_button_fh.querySelector("path").style.fill = "transparent";
         plus_button_fh.querySelector("path").style.fill = "transparent";
     });
     add_button_holder_fh.addEventListener("mouseover",function(){
-        pen_button_fh.querySelector("path").style.fill = "white";
-        plus_button_fh.querySelector("path").style.fill = "white";
+        if(!presets.one_element_being_dragged){
+            pen_button_fh.querySelector("path").style.fill = "white";
+            plus_button_fh.querySelector("path").style.fill = "white";
+        }
     })
     add_button_holder_fh.addEventListener("mouseout",function(){
         pen_button_fh.querySelector("path").style.fill = "transparent";
         plus_button_fh.querySelector("path").style.fill = "transparent";
     });
     pen_button_fh.addEventListener("mouseover",()=>{
-        pen_button_fh.querySelector("path").style.fill = "white";
-        plus_button_fh.querySelector("path").style.fill = "white";
+        if(!presets.one_element_being_dragged){
+            pen_button_fh.querySelector("path").style.fill = "white";
+            plus_button_fh.querySelector("path").style.fill = "white";
+        }
     })
     pen_button_fh.addEventListener("mouseout",()=>{
         pen_button_fh.querySelector("path").style.fill = "transparent";
         plus_button_fh.querySelector("path").style.fill = "transparent";
     })
     plus_button_fh.addEventListener("mouseover",()=>{
-        pen_button_fh.querySelector("path").style.fill = "white";
-        plus_button_fh.querySelector("path").style.fill = "white";
+        if(!presets.one_element_being_dragged){
+            pen_button_fh.querySelector("path").style.fill = "white";
+            plus_button_fh.querySelector("path").style.fill = "white";
+        }
     })
     plus_button_fh.addEventListener("mouseout",()=>{
         pen_button_fh.querySelector("path").style.fill = "transparent";

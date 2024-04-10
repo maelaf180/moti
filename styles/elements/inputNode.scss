@@ -199,6 +199,9 @@ body {
             background: rgba(132, 24, 24, 0);
             margin-top: 100px;
 
+            .node{
+                position: absolute;
+            }
             .input-node {
                 display: flex;
                 align-items: center;
@@ -206,8 +209,9 @@ body {
                 color: white;
                 border: 0px white solid;
                 background: rgba(14, 14, 14, 0);
-                transition: 0.1s ease-in-out;
+                transition: 0.1s ease-in-out, 0s ease-out top;
                 height: 40px;
+                width: 70%;
 
                 &:hover {
                     .movebtn {
@@ -296,6 +300,8 @@ body {
                     cursor: text;
                     span {
                         display: flex;
+                        width: 100%;
+                        height: 100%;
                         align-items: center;
                         height: 40px;
                         cursor: text;

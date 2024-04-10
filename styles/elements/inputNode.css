@@ -26,11 +26,16 @@
   --cursor-expand: ew-resize;
 }
 
+body {
+  cursor: var(--cursor-expand);
+}
+
 .main-sidebar {
   position: absolute;
   left: 0;
   top: 50%;
-  height: 700px;
+  height: 80%;
+  min-height: 400px;
   width: 270px;
   background: var(--secondary-color);
   transform: translate(0%, -50%);

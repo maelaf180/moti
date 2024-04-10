@@ -1,5 +1,9 @@
 //hi maelaf
 const { app, BrowserWindow } = require("electron");
+const { initialize , enable} = require("@electron/remote/main")
+const path = require("path");
+
+initialize();
 
 let mainWindow;
 let splash;
@@ -15,9 +19,12 @@ function createWindow() {
           webPreferences: {
                nodeIntegration: true, // Enable Node.js integration in the renderer process
                webSecurity: false,
+               contextIsolation: false,
+               enableRemoteModule: true,
+               preload: path.join(__dirname, "preload.js"),
           },
      });
-
+     enable(mainWindow.webContents);
      // Create the splash window
      splash = new BrowserWindow({
           width: 700,

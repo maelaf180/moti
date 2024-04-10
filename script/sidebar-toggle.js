@@ -3,15 +3,20 @@ function toggleSidebar() {
 
     document.addEventListener('mousemove', (event) => {
         let sidebarWidth = sidebar.getBoundingClientRect().width;
+        let sidebarTop = sidebar.getBoundingClientRect().top;
+        let sidebarBottom = sidebar.getBoundingClientRect().bottom;
         let mouseX = event.clientX;
         let mouseY = event.clientY;
         let screenWidth = window.innerWidth;
         let leftBoundary = screenWidth * 0.07;
-        if (mouseX < leftBoundary) {
+        
+        console.log(sidebarTop)
+
+        if (mouseX < leftBoundary && mouseY > sidebarTop  && mouseY < sidebarBottom) {
             sidebar.style.left = '0';
-        } else if(mouseX >=sidebarWidth + 15) {
-            sidebar.style.left = '-350px';
-        }
+     } else if(mouseX >=sidebarWidth + 15 || mouseY < sidebarTop || mouseY > sidebarBottom) {
+          sidebar.style.left = '-350px';
+     }
 
     })
 }
